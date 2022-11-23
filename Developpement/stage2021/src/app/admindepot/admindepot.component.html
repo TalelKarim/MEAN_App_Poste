@@ -1,0 +1,73 @@
+<div class="sidenav">
+    <a routerLink="."><img src="../../assets/logo.png" alt="logo" style="width: 250px;"></a>
+    <a routerLink="../adminajout" class="btn btn-outline-dark" style="position: relative; top: 80px;">Ajout clients</a>
+    <a routerLink="." class="btn btn-outline-dark"style="position: relative; top: 150px;">Ajout dépôts</a>
+    <a routerLink="../consult" class="btn btn-outline-dark"style="position: relative; top: 220px;">Consultation dépôts</a>
+    <a routerLink="../suppr-client" class="btn btn-outline-dark"style="position: relative; top: 290px;">Supression clients</a>
+    <a routerLink="" class="btn btn-outline-dark"style="position: relative; top: 360px;">Déconnexion</a>
+    <p style="position:relative; top: 387px; text-align: center; color: #828282;">admin@admin.com</p>
+  </div>
+  
+<div class="main" style="background: #FDE7E7;padding-bottom:123px;padding-top:5%;">
+    <div class="container">
+        <div class="row" style="margin-bottom: 50px;">
+            <div class="card w-50 border-dark" style="margin:auto;">
+                <div class="card-body">
+                    <form>
+                        <p style="font-style: italic; font-weight:500;">Ajout dépôt</p>
+                        <div class="mb-3">
+                          <label for="client" class="form-label">Client : </label>
+                          <select class="form-control form-control-lg" id="cli">
+                            <option value="">Choisissez client</option>
+                            <option  *ngFor="let cl of client" value="{{cl.id_client}}">{{ cl.libelle}}</option>
+                        </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="region" class="form-label">Région : </label>
+                            <select (change)="f1()" class="form-control form-control-lg" id="reg">
+                              <option value="">Choisissez région</option>
+                              <option  *ngFor="let reg of region" value="{{reg.id_region}}">{{ reg.libelle_region}}</option>
+                          </select>
+    
+                        </div>
+                        <div class="mb-3">
+                            <label for="bp" class="form-label">Bureau de poste : </label>
+                            <select class="form-control form-control-lg" id="bp">
+                              <option value="">Choisissez bureau de poste</option>
+                              <option *ngFor="let bup of bp" value="{{bup.id_bp}}">{{ bup.nom_bp}}</option>
+                          </select>
+                        </div>
+                        <div class="mb-3">
+                          <label for="service" class="form-label">Service : </label>
+                          <select class="form-control form-control-lg" id="service">
+                            <option value="">Choisissez service</option>
+                            <option *ngFor="let srv of serv" value="{{srv.id_service}}">{{ srv.libelle_service}}</option>
+                        </select>
+                        </div>
+    
+                        <div class="mb-3">
+                          <label for="montant" class="form-label">Montant : </label>
+                          <input type="text" class="form-control" id="mt" placeholder="Montant">
+                          <label for="nbre" class="form-label">Nombre d'envois : </label>
+                          <input type="text" class="form-control" id="nbre" placeholder="Nombre d'envois">
+                        </div>
+                        <div>
+                        <button type="submit" class="btn " id="val" style="background-color: #17A2B8;margin-left: 87%; color: white;" (click)="Add()">Ajouter</button>
+                        </div>
+                      </form>
+                </div>
+              </div>
+        </div>
+    </div>
+    
+</div>
+<div id="myModal" class="modal">
+ 
+  <!-- Modal content -->
+  <div class="modal-content"  style="width: 500px;">
+    <span class="close">&times;</span>
+    <div id="img"></div>
+    <p id="error"></p>
+  </div>
+
+</div>

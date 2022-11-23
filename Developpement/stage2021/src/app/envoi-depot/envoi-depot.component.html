@@ -1,0 +1,75 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" routerLink="."><img src="../../assets/logo.png" alt="logo" width="50px"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav ms-5">
+        <a class="nav-link" routerLink="../ajout-client">Ajout client</a>
+        <a class="nav-link" routerLink=".">Ajout dépôt</a>
+        <a class="nav-link" routerLink="" style="position: relative; left:480%;">Déconnexion</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+<div class="container">
+    <div class="row" style="margin-bottom: 50px;">
+        <div class="card w-50 border-dark" style="margin:auto;">
+            <div class="card-body">
+                <form>
+                    <p style="font-style: italic; font-weight:500;">Ajout dépôt</p>
+                    <div class="mb-3">
+                      <label for="client" class="form-label">Client : </label>
+                      <select class="form-control form-control-lg" id="cli">
+                        <option value="">Choisissez client</option>
+                        <option  *ngFor="let cl of client" value="{{cl.id_client}}">{{ cl.libelle}}</option>
+                    </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="region" class="form-label">Région : </label>
+                        <select (change)="f1()" class="form-control form-control-lg" id="reg">
+                          <option value="">Choisissez région</option>
+                          <option  *ngFor="let reg of region" value="{{reg.id_region}}">{{ reg.libelle_region}}</option>
+                      </select>
+
+                    </div>
+                    <div class="mb-3">
+                        <label for="bp" class="form-label">Bureau de poste : </label>
+                        <select class="form-control form-control-lg" id="bp">
+                          <option value="">Choisissez bureau de poste</option>
+                          <option *ngFor="let bup of bp" value="{{bup.id_bp}}">{{ bup.nom_bp}}</option>
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="service" class="form-label">Service : </label>
+                      <select class="form-control form-control-lg" id="service">
+                        <option value="">Choisissez service</option>
+                        <option *ngFor="let srv of serv" value="{{srv.id_service}}">{{ srv.libelle_service}}</option>
+                    </select>
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="montant" class="form-label">Montant : </label>
+                      <input type="text" class="form-control" id="mt" placeholder="Montant">
+                      <label for="nbre" class="form-label">Nombre d'envois : </label>
+                      <input type="text" class="form-control" id="nbre" placeholder="Nombre d'envois">
+                    </div>
+                    <div>
+                    <button type="submit" class="btn " id="val" style="background-color: #17A2B8;margin-left: 87%; color: white;" (click)="onClick()">Ajouter</button>
+                    </div>
+                  </form>
+            </div>
+          </div>
+    </div>
+</div>
+<div id="myModal" class="modal">
+ 
+  <!-- Modal content -->
+  <div class="modal-content"  style="width: 500px;">
+    <span class="close">&times;</span>
+    <div id="img"></div>
+    <p id="error"></p>
+  </div>
+
+</div>

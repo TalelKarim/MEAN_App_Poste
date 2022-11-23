@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="row">
+        <img src="../../assets/logo.png" style="width: 10%;height: 35%;margin: auto;display: block;margin-bottom: 8px;">
+    </div>
+    <div class="row" style="margin-bottom: 50px;">
+        <div class="card w-50 border-dark" style="margin:auto;">
+            <div class="card-body">
+                <form>
+                    <div class="mb-3">
+                      <label for="mail" class="form-label">Adresse mail : </label>
+                      <input type="text" class="form-control" id="mail" placeholder="Mail">
+                    </div>
+                    <div class="mb-3">
+                      <label for="pwd" class="form-label">Mot de passe : </label>
+                      <input type="password" class="form-control" id="pwd" placeholder="Mot de passe">
+                    </div>
+                    <div>
+                    <button type="submit" class="btn " id="val" style="background-color: #FFC107;" (click)="login()">Se Connecter</button>
+
+                    <p style="position: relative;bottom: 50px;">Vous n'avez pas de compte?<a routerLink="inscription"> Cliquez ici !</a></p>
+                    </div>
+                  </form>
+                  <div id="wrong">
+
+                  </div>
+            </div>
+          </div>
+    </div>
+</div>

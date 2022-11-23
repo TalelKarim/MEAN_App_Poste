@@ -1,0 +1,96 @@
+<div class="sidenav">
+    <a routerLink="."><img src="../../assets/logo.png" alt="logo" style="width: 250px;"></a>
+    <a routerLink="../adminajout" class="btn btn-outline-dark" style="position: relative; top: 80px;">Ajout clients</a>
+    <a routerLink="../admindepot" class="btn btn-outline-dark"style="position: relative; top: 150px;">Ajout dépôts</a>
+    <a routerLink="../consult" class="btn btn-outline-dark"style="position: relative; top: 220px;">Consultation dépôts</a>
+    <a routerLink="../suppr-client" class="btn btn-outline-dark"style="position: relative; top: 290px;">Supression clients</a>
+    <a routerLink="" class="btn btn-outline-dark"style="position: relative; top: 360px;">Déconnexion</a>
+    <p style="position:relative; top: 387px; text-align: center; color: #828282;">admin@admin.com</p>
+  </div>
+  
+<div class="main" style="background: #FDE7E7;">
+    <button class="btn btn-outline-dark" style="position: relative;top: 45px;left: 80px;" onclick="f1()"><p>Voir filtres</p></button>
+    <div class="container">
+        <div class="row" style="margin-bottom: 50px;">
+            <div class="card w-100 border-dark" style="margin-top: 50px;" id="myDIV">
+                <div class="card-body">
+                    <form>
+                        <p>Filtrer par : </p>
+
+                          <label for="client" class="form-label">Client : </label>
+                          <select class="form-control form-control-lg" id="cli">
+                            <option value="">Choisissez client</option>
+                            <option  *ngFor="let cl of client" value="{{cl.id_client}}">{{ cl.libelle}}</option>
+                        </select>
+
+                            <label for="region" class="form-label"> Région : </label>
+                            <select (change)="f1()" class="form-control form-control-lg" id="reg">
+                                <option value="">Choisissez région</option>
+                                <option  *ngFor="let reg of region" value="{{reg.id_region}}">{{ reg.libelle_region}}</option>
+                            </select>
+
+                            <label for="bp" class="form-label">Bureau de poste : </label>
+                            <select class="form-control form-control-lg" id="bp">
+                                <option value="">Choisissez bureau de poste</option>
+                                <option *ngFor="let bup of bp" value="{{bup.id_bp}}">{{ bup.nom_bp}}</option>
+                            </select>
+                        <div class="mb-3" style="margin-top: 20px;">
+                          <label for="service" class="form-label">Service : </label>
+                          <select class="form-control form-control-lg" id="service">
+                            <option value="">Choisissez service</option>
+                            <option *ngFor="let srv of serv" value="{{srv.id_service}}">{{ srv.libelle_service}}</option>
+                        </select>
+
+                          <label for="date_s" class="form-label">De : </label>
+                          <input type="date" name="date_s" id="date_s">
+
+                          <label for="date_e" class="form-label">Jusqu'au : </label>
+                          <input type="date" name="date_e" id="date_e">
+                        </div>
+                        <div>
+                        <button type="submit" class="btn " id="fil" style="background-color: #17A2B8;margin-left: 87%; color: white;" (click)="Filtrer()">Filtrer</button>
+                        </div>
+                      </form>
+                </div>
+              </div>    
+        </div>
+    </div>
+
+    <div class="container" id="exp">
+        <div class="row">
+            <img src="../../assets/logo.png" style="width: 10%;position: relative; left: 40px;" alt="logo">
+        </div>
+        <div class="row">
+            <p>Liste des dépôts :</p>
+            
+            <table class="display" style="width:100%" id="t1">
+                <thead>
+                    <tr>
+                        <th>Client</th>
+                        <th>Bureau de poste</th>
+                        <th>Service</th>
+                        <th>Montant</th>
+                        <th>Nombre</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody >
+                    <tr *ngFor="let dep of depot">
+                        <td>{{dep.client}}</td>
+                        <td>{{dep.bureau}}</td>
+                        <td>{{dep.service}}</td>
+                        <td>{{dep.montant}}</td>
+                        <td>{{dep.nombre}}</td>
+                        <td>{{dep.date_envoi}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div style="text-align: center;">
+        <button class="btn btn-danger" style="position: relative; right: 60px;" (click)="OnExportClickPDF()">Exporter PDF</button>
+        <button class="btn btn-success" (click)="OnExportClickXLS()">Exporter CSV</button>
+    </div> 
+</div>
+
+

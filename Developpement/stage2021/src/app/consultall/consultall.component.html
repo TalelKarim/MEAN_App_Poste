@@ -1,0 +1,49 @@
+<div class="sidenav">
+    <a routerLink="."><img src="../../assets/logo.png" alt="logo" style="width: 250px;"></a>
+    <a routerLink="../adminajout" class="btn btn-outline-dark" style="position: relative; top: 80px;">Ajout clients</a>
+    <a routerLink="../admindepot" class="btn btn-outline-dark"style="position: relative; top: 150px;">Ajout dépôts</a>
+    <a routerLink="../consult" class="btn btn-outline-dark"style="position: relative; top: 220px;">Consultation dépôts</a>
+    <a routerLink="../suppr-client" class="btn btn-outline-dark"style="position: relative; top: 290px;">Supression clients</a>
+    <a routerLink="" class="btn btn-outline-dark"style="position: relative; top: 360px;">Déconnexion</a>
+    <p style="position:relative; top: 387px; text-align: center; color: #828282;">admin@admin.com</p>
+</div>
+<div class="main" style="background: #FDE7E7;">
+    <div class="container" id ="exp">
+        <div class="row">
+            <img src="../../assets/logo.png" style="width: 10%;position: relative; left: 40px;" alt="logo">
+        </div>
+        <div class="row">
+            <p>Liste des dépôts :</p>
+            
+            <table class="display" style="width:100%" id="t1">
+                <thead>
+                    <tr>
+                        <th>Client</th>
+                        <th>Bureau de poste</th>
+                        <th>Service</th>
+                        <th>Montant</th>
+                        <th>Nombre</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody >
+                    <tr *ngFor="let dep of depot">
+                        <td>{{dep.client}}</td>
+                        <td>{{dep.bureau}}</td>
+                        <td>{{dep.service}}</td>
+                        <td>{{dep.montant}}</td>
+                        <td>{{dep.nombre}}</td>
+                        <td>{{dep.date_envoi}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div style="text-align: center;">
+        <button class="btn btn-danger" style="position: relative; right: 60px;" (click)="OnExportClickPDF()">Exporter PDF</button>
+        <button class="btn btn-success" (click)="OnExportClickXLS()">Exporter CSV</button>
+    </div> 
+</div>
+
+
+

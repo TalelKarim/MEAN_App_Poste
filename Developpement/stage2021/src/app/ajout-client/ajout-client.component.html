@@ -1,0 +1,60 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" routerLink="."><img src="../../assets/logo.png" alt="logo" width="50px"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav ms-5">
+        <a class="nav-link" routerLink=".">Ajout client</a>
+        <a class="nav-link" routerLink="../envoi-depot">Ajout dépôt</a>
+        <a class="nav-link" routerLink="" style="position: relative; left:480%;">Déconnexion</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+<div class="container">
+    <div class="row" style="margin-bottom: 50px;">
+        <div class="card w-50 border-dark" style="margin:auto;">
+            <div class="card-body">
+                <form>
+                    <p style="font-style: italic; font-weight:500;">Ajout Client</p>
+                    <div class="mb-3">
+                      <label for="client" class="form-label">Client : </label>
+                      <input type="text" class="form-control" id="client" placeholder="Client">
+                    </div>
+                    <div class="mb-3">
+                        <label for="adresse" class="form-label">Adresse : </label>
+                        <input type="mail" class="form-control" id="adresse" placeholder="Adresse">
+                    </div>
+                    <div class="mb-3">
+                        <label for="tel" class="form-label">Numero telephone : </label>
+                        <input type="tel" class="form-control" id="tel" placeholder="Numero telephone">
+                    </div>
+                    <div class="mb-3">
+                      <label for="fax" class="form-label">FAX : </label>
+                      <input type="text" class="form-control" id="fax" placeholder="Fax">
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="mail" class="form-label">Adresse mail : </label>
+                      <input type="mail" class="form-control" id="mail" placeholder="E-mail">
+                    </div>
+                    <div>
+                    <input type="submit" class="btn" id="val" style="background-color: #17A2B8;margin-left: 87%; color: white;" (click)="add()" value="Ajouter" action="submit">
+                    </div>
+                  </form>
+            </div>
+          </div>
+    </div>
+</div>
+<div id="myModal" class="modal">
+ 
+  <!-- Modal content -->
+  <div class="modal-content"  style="width: 500px;">
+    <span class="close">&times;</span>
+    <div id="img"></div>
+    <p id="error"></p>
+  </div>
+
+</div>
